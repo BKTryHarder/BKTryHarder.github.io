@@ -207,7 +207,17 @@
 <!-- Vanta Waves -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/tengbao/vanta@latest/dist/vanta.waves.min.js"></script>
-
+<script>
+    // Initialize Vanta.js for the 'aboutBackground' div
+    VANTA.WAVES({
+      el: "#aboutBackground",
+      color: 0x007bff,
+      shininess: 20,
+      waveHeight: 20,
+      waveSpeed: 1.2,
+      zoom: 0.75
+    });
+</script>
 
 <!-- Particles.js -->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
