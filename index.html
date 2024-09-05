@@ -7,148 +7,300 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #0c0c0c;
-            color: #f0f0f0;
+        /* General Body Styling */
+        body, html {
+            height: 100%;
+            margin: 0;
             font-family: 'Arial', sans-serif;
             scroll-behavior: smooth;
+            background-color: #000000;
+            color: #ffffff;
         }
-        /* Style for the logo */
-        .logo {
-            width: 150px;
-            margin: 20px auto;
+
+        /* Particles.js background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Keep particles behind everything */
         }
+
+        /* Navbar */
         .navbar {
-            background-color: #121212;
+            background-color: #000000;
+            z-index: 10; /* Ensure navbar stays on top */
+            transition: background-color 0.5s ease;
         }
+
         .navbar-brand, .nav-link {
-            color: #f0f0f0 !important;
+            color: #ffffff !important;
         }
+
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: #007bff !important;
+        }
+
+        /* Logo Styling */
+        .logo {
+            width: 200px;
+            margin: 1px auto;
+            opacity: 0;
+            transform: translateY(-200px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .logo.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Section Styling */
         .section {
-            padding: 60px 0;
+            padding: 40px 0;
             text-align: center;
+            min-height: 100vh;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
         }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
+
+        .section.active {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .section-heading {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
+
         footer {
             padding: 20px 0;
             text-align: center;
-            background-color: #121212;
+            background-color: #000000;
+            z-index: 1;
         }
+
         .footer-text {
-            color: #a9a9a9;
+            color: #555;
+        }
+
+        .bg-light-blue {
+            background-color: #000000 !important;
+        }
+
+        h2, h3, h4 {
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">OwlVal</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#team">Our Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<!-- Particles.js background -->
+<div id="particles-js"></div>
 
-    <!-- Logo Section -->
-    <div class="container text-center mt-5">
-        <img src="https://github.com/BKTryHarder/BKTryHarder.github.io/blob/a72324de7c7766db2d5e07c1a545f66657348366/mylogo_owlval.jpg" alt="OwlVal Logo" class="logo">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">OwlVal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#team">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
     </div>
+</nav>
 
-    <!-- About Us Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-heading">About Us</h2>
-            <p>At OwlVal, we are at the forefront of integrating artificial intelligence with financial markets to provide unprecedented insights and valuations of financial derivatives products.</p>
-            <p>Founded by industry experts, we leverage cutting-edge technology to help financial institutions optimize their strategies and manage risk effectively.</p>
-        </div>
-    </section>
+<!-- Logo Section -->
 
-    <!-- Services Section -->
-    <section id="services" class="section bg-dark">
-        <div class="container">
-            <h2 class="section-heading">Our Services</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <h3>Risk Analysis</h3>
-                    <p>Utilize AI to predict and mitigate financial risks effectively, offering the tools needed for better decision-making.</p>
-                </div>
-                <div class="col-md-4">
-                    <h3>Forecasting</h3>
-                    <p>Advanced algorithms to forecast market trends and behaviors, providing insights that shape the future of finance.</p>
-                </div>
-                <div class="col-md-4">
-                    <h3>Custom AI Solutions</h3>
-                    <p>Tailored AI solutions designed to meet your unique business requirements and optimize your operations.</p>
-                </div>
+
+<!-- About Us Section -->
+<section id="about" class="section">
+    <!-- Animated Background -->
+	<div id="aboutBackground" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;"></div>
+    
+
+	<div class="container text-center mt-5">
+    <img src="mylogo_owlval-removebg-preview.png" alt="OwlVal Logo" class="logo" id="logo">
+	</div>
+
+    <div class="container">
+        <h2>About Us</h2>
+        <p>At OwlVal, we are at the forefront of integrating artificial intelligence with financial markets to provide unprecedented insights and valuations of financial derivatives products.</p>
+        <p>Founded by industry experts, we leverage cutting-edge technology to help financial institutions optimize their strategies and manage risk effectively.</p>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="section">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Risk Analysis</h3>
+                <p>Utilize AI to predict and mitigate financial risks effectively, offering the tools needed for better decision-making.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Forecasting</h3>
+                <p>Advanced algorithms to forecast market trends and behaviors, providing insights that shape the future of finance.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Custom AI Solutions</h3>
+                <p>Tailored AI solutions designed to meet your unique business requirements and optimize your operations.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Our Team Section -->
-    <section id="team" class="section">
-        <div class="container">
-            <h2 class="section-heading">Our Team</h2>
-            <p>Meet the innovators behind our success.</p>
-            <div class="row">
-                <div class="col-md-4">
-                    <h4>Abbaoui Said</h4>
-                    <p>Co-Founder & AI Expert</p>
-                </div>
-                <div class="col-md-4">
-                    <h4>Bennani Kamil</h4>
-                    <p>Co-Founder & Data Scientist</p>
-                </div>
-                <div class="col-md-4">
-                    <h4>Roux Etienne</h4>
-                    <p>Financial Expert</p>
-                </div>
+<!-- Our Team Section -->
+<section id="team" class="section">
+    <div class="container">
+        <h2>Our Team</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Abbaoui Said</h4>
+                <p>Co-Founder & Financial Engineer</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Bennani Kamil</h4>
+                <p>Co-Founder & Data Scientist</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Roux Etienne</h4>
+                <p>Co-Founder & AI Expert</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section bg-dark">
-        <div class="container">
-            <h2 class="section-heading">Contact Us</h2>
-            <p>We'd love to hear from you. Reach out to us for collaborations, inquiries, or more information.</p>
-            <a href="mailto:info@owlval.com" class="btn btn-primary">Contact Us</a>
-        </div>
-    </section>
+<!-- Contact Section -->
+<section id="contact" class="section">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you. Reach out to us for collaborations, inquiries, or more information.</p>
+        <a href="mailto:info@owlval.com" class="btn btn-primary">Contact Us</a>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p class="footer-text">&copy; 2024 OwlVal - All Rights Reserved</p>
-        </div>
-    </footer>
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p class="footer-text">&copy; 2024 OwlVal - All Rights Reserved</p>
+    </div>
+</footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Vanta Waves -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tengbao/vanta@latest/dist/vanta.waves.min.js"></script>
+
+
+<!-- Particles.js -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {
+                "value": 80
+            },
+            "color": {
+                "value": "#999999"
+            },
+            "shape": {
+                "type": "circle"
+            },
+            "opacity": {
+                "value": 0.5
+            },
+            "size": {
+                "value": 3
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#999999",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 6
+            }
+        },
+        "interactivity": {
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                }
+            }
+        }
+    });
+	
+	// Function to offset the scroll position by the height of the navbar
+	function offsetScroll(event) {
+		var targetId = event.target.getAttribute('href').substring(1); // Get the target section ID
+		var targetElement = document.getElementById(targetId);
+		var navbarHeight = document.querySelector('.navbar').offsetHeight;
+
+		if (targetElement) {
+			window.scrollTo({
+				top: targetElement.offsetTop - navbarHeight, // Adjust scroll position based on navbar height
+				behavior: 'smooth'
+			});
+			event.preventDefault(); // Prevent default anchor behavior
+		}
+	}
+
+	// Attach the scroll offset to each link in the navbar
+	document.querySelectorAll('.nav-link').forEach(function(link) {
+		link.addEventListener('click', offsetScroll);
+	});
+
+	
+    // Scroll Animation for sections
+    function revealOnScroll() {
+        var sections = document.querySelectorAll('.section');
+        var logo = document.getElementById('logo');
+        var windowHeight = window.innerHeight;
+
+        // Logo animation
+        if (logo.getBoundingClientRect().top < windowHeight - 100) {
+            logo.classList.add('active');
+        }
+
+        // Section animations
+        sections.forEach(function(section) {
+            if (section.getBoundingClientRect().top < windowHeight - 100) {
+                section.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // Navbar auto-close on section click (for mobile view)
+    $(document).on('click', '.navbar-collapse.show', function (e) {
+        if ($(e.target).is('a')) {
+            $(this).collapse('hide');
+        }
+    });
+</script>
+
 </body>
 </html>
